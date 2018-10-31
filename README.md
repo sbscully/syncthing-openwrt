@@ -1,8 +1,8 @@
 # syncthing-openwrt
-Init script and usage for ARM based OpenWrt devices.
+Init script and usage for AArch64 based OpenWrt devices.
 
-This document is only applicable for devices with an ARM chip, and is only
-tested on OpenWrt BarrierBreaker 14.07.
+This document is only applicable for devices with an AArch64 chip, and is only
+tested on OpenWrt 18.06.1 on a Raspberry Pi 3 Model B.
 
 Usage
 =====
@@ -14,9 +14,9 @@ Usage
    environment variable. (Please replace the URL and file names with the
    latest version. You can find the link on https://syncthing.net .)
    ```shell
-   $ curl -k https://github.com/syncthing/syncthing/releases/download/v0.11.9/syncthing-linux-arm-v0.11.9.tar.gz
-   $ tar -zxf syncthing-linux-arm-v0.11.9.tar.gz 
-   $ cd syncthing-linux-arm-v0.11.9
+   $ curl -k https://github.com/syncthing/syncthing/releases/download/v0.14.51/syncthing-linux-arm64-v0.14.51.tar.gz
+   $ tar -zxf syncthing-linux-arm64-v0.14.51.tar.gz
+   $ cd syncthing-linux-arm64-v0.14.51
    $ cp syncthing /usr/bin/
    ```
 
@@ -66,7 +66,7 @@ Usage
 7. Download `/etc/init.d/syncthing` from this repository and copy it to
    `/etc/init.d` and make it executable.
    ```shell
-   $ curl -k https://github.com/brglng/syncthing-openwrt/raw/master/etc/init.d/syncthing
+   $ curl -k https://raw.githubusercontent.com/sbscully/syncthing-openwrt/master/etc/init.d/syncthing
    $ cp syncthing /etc/init.d
    $ chmod +x /etc/init.d/syncthing
    ```
@@ -91,7 +91,7 @@ Usage
              option proto 'tcp'
              option dest_port '22000'
              option name 'Syncthing TCP'
-    
+
     config rule
              option enabled '1'
              option target 'ACCEPT'
@@ -99,7 +99,7 @@ Usage
              option proto 'udp'
              option dest_port '21025'
              option name 'Syncthing UDP'
-    
+
     config redirect
              option enabled '1'
              option target 'DNAT'
