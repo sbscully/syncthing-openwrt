@@ -82,8 +82,8 @@ Usage
     to turn on "GUI Authentication Password" and "Use HTTPS for GUI" in the
     settings.
 
-11. Open ports 20022/TCP and 21025/UDP to WAN, and set up port forward for
-    port 20022/TCP. Add the following lines in `/etc/config/firewall`:
+11. Open ports 22000/TCP and 21027/UDP to WAN, and set up port forward for
+    port 22000/TCP. Add the following lines in `/etc/config/firewall`:
     ```
     config rule
              option target 'ACCEPT'
@@ -97,7 +97,7 @@ Usage
              option target 'ACCEPT'
              option src 'wan'
              option proto 'udp'
-             option dest_port '21025'
+             option dest_port '21027'
              option name 'Syncthing UDP'
 
     config redirect
